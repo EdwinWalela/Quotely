@@ -1,0 +1,29 @@
+{
+  "name": "quotely",
+  "version": "1.0.0",
+  "description": "daily inspirational quotes",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdwinWalela/Quotely.git"
+  },
+  "keywords": [
+    "mobile-app",
+    "cross-platform",
+    "api"
+  ],
+  "author": "edwin walela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdwinWalela/Quotely/issues"
+  },
+  "homepage": "https://github.com/EdwinWalela/Quotely#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.13"
+  }
+}
