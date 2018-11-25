@@ -30,7 +30,8 @@ app.post('/quote',(req,res) =>{
         new Quote({
             index : index,
             body : quoteBody,
-            author : author
+            author : author,
+            likes:0
         }).save()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
    }).catch(err=>{
        console.log(err);
@@ -41,14 +42,21 @@ app.post('/quote',(req,res) =>{
 
 app.get('/quote/:index',(req,res)=>{
     let index = req.params.index;
-    console.log(index);
     Quote.findOne({index:index}).then(quote=>{
-        console.log(quote)
         res.status(200).send(quote);
     }).catch(err=>{
         console.log(err)
         res.status(500).send(err);
     })
+})
+
+app.post('/quote/like/:index',(req,res)=>{
+    Quote.findOneAndUpdate({index:req.params.index},{$inc:{likes:1}})
+        .then(quote=>{
+            res.status(200).send('OK');
+        }).catch(err=>{
+            res.status(500).send('OK');
+        })
 })
 
 
